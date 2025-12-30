@@ -30,9 +30,9 @@ jar:
 
 jar-dist: clean-build jar
 
-report:
-	$(GR) jacocoTestReport
-
-check:
-	$(GR) checkstyleTest
+#report:
+#	$(GR) jacocoTestReport
+#
+#check:
+#	$(GR) checkstyleTest
 .PHONY: build
