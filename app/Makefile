@@ -19,9 +19,6 @@ install:
 run:
 	$(GR) run
 
-test:
-	$(GR) test
-
 update-dep:
 	$(GR) refreshVersions
 	# ./gradlew wrapper --gradle-version 9.0.0
