@@ -14,14 +14,14 @@ public class StringSchema extends BaseSchema<String> {
 
     public StringSchema minLength(int minLength) {
 
-        addValidation("minLength", (String str) -> str.length() > minLength);
+        addValidation("minLength", str -> str.length() > minLength);
 
         return this;
     }
 
     public StringSchema contains(String substring) {
 
-        addValidation("substring", str -> str == null || str.contains(substring));
+        addValidation("substring", str -> str.contains(substring));
         return this;
     }
 }

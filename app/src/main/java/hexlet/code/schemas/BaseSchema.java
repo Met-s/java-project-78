@@ -16,6 +16,10 @@ public abstract class BaseSchema<T> {
         if (validations.containsKey("required") && (obj == null || obj == "")) {
             return false;
         }
+        if (!validations.containsKey("required")) {
+            return true;
+        }
+
 
         return validations.values().stream()
                 .allMatch(validation -> validation.test(obj));

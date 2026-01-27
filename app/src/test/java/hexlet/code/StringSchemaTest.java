@@ -11,7 +11,7 @@ class StringSchemaTest {
     StringSchema schema = v.string();
 
     @Test
-    @DisplayName("Test: schema string, add required")
+    @DisplayName("Test: schema string, add required()")
     void testSchemaString() {
 
         assertTrue(schema.isValid(""));
@@ -24,14 +24,14 @@ class StringSchemaTest {
     }
 
     @Test
-    @DisplayName("Test: SchemaString method MinLength")
+    @DisplayName("Test: SchemaString method MinLength()")
     void testSchemaStringMinLength() {
 
         assertTrue(schema.minLength(4).isValid("Hexlet"));
     }
 
     @Test
-    @DisplayName("Test: SchemaString method Contains")
+    @DisplayName("Test: SchemaString method Contains()")
     void testSchemaStringContains() {
 
         var schema1 = schema.required().contains("fox");
@@ -42,10 +42,11 @@ class StringSchemaTest {
     }
 
     @Test
-    @DisplayName("Test: SchemaString validation combination")
+    @DisplayName("Test: SchemaString validation combination()")
     void testSchemaStringValidation() {
 
         var text = "what does the fox say";
+        assertTrue(schema.minLength(8).contains("fox").isValid(null));
         assertTrue(schema.required().minLength(8).contains("fox").isValid(text));
     }
 
