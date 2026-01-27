@@ -24,7 +24,7 @@ checkstyle {
 }
 
 jacoco {
-    toolVersion = "0.8.13"
+    toolVersion = "0.8.14"
     reportsDirectory = layout.buildDirectory.dir("customJacocoReportDir")
 }
 
@@ -52,7 +52,7 @@ dependencies {
     implementation ("com.fasterxml.jackson.core:jackson-annotations:2.12.4")
     implementation ("com.fasterxml.jackson.core:jackson-core:2.15.0")
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.19.1")
-
+    testImplementation("org.assertj:assertj-core:3.27.6")
 }
 
 tasks.test {
