@@ -49,5 +49,4 @@ class StringSchemaTest {
         assertTrue(schema.minLength(8).contains("fox").isValid(null));
         assertTrue(schema.required().minLength(8).contains("fox").isValid(text));
     }
-
 }
