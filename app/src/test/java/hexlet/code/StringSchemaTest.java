@@ -27,7 +27,7 @@ class StringSchemaTest {
     @DisplayName("Test: SchemaString method MinLength()")
     void testSchemaStringMinLength() {
 
-        assertTrue(schema.minLength(4).isValid("Hexlet"));
+        assertTrue(schema.required().minLength(4).isValid("Hexlet"));
     }
 
     @Test
