@@ -13,10 +13,12 @@ public class Validator {
     }
 
     public final NumberSchema number() {
+
         return new NumberSchema();
     }
 
     public final MapSchema map() {
+
         return new MapSchema();
     }
 }

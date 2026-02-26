@@ -1,7 +1,10 @@
 package hexlet.code;
 
 
+import hexlet.code.schemas.BaseSchema;
+
 import java.util.HashMap;
+import java.util.Map;
 
 public class App {
     public static void main(String[] args) {
@@ -56,15 +59,39 @@ public class App {
         var m = new Validator();
         var schemaMap = m.map();
 
-        System.out.println(schemaMap.isValid(null));
-        schemaMap.required();
-        System.out.println(schemaMap.isValid(null));
-        var data = new HashMap<String, String>();
-        data.put("key1", "value1");
+//        System.out.println(schemaMap.isValid(null));
+//        schemaMap.required();
+//        System.out.println(schemaMap.isValid(null));
+//        var data = new HashMap<String, String>();
+//        data.put("key1", "value1");
+//
+//        schemaMap.sizeof(2);
+//        System.out.println(schemaMap.isValid(data));
+//        data.put("key2", "value2");
+//        System.out.println(schemaMap.isValid(data));
 
-        schemaMap.sizeof(2);
-        System.out.println(schemaMap.isValid(data));
-        data.put("key2", "value2");
-        System.out.println(schemaMap.isValid(data));
+        Map<String, BaseSchema<String>> schemas = new HashMap<>();
+        schemas.put("firstName", m.string().required());
+        schemas.put("lastName", m.string().required().minLength(2));
+
+        schemaMap.shape(schemas);
+
+        Map<String, String> human1 = new HashMap<>();
+        human1.put("firstName", "John");
+        human1.put("lastName", "Smith");
+        System.out.println(schemaMap.isValid(human1)); // true
+
+        Map<String, String> human2 = new HashMap<>();
+        human2.put("firstName", "John");
+        human2.put("lastName", null);
+        System.out.println(schemaMap.isValid(human2)); // false
+
+
+        Map<String, String> human3 = new HashMap<>();
+        human3.put("firstName", "Anna");
+        human3.put("lastName", "B");
+        System.out.println(schemaMap.isValid(human3)); // false
+
+
     }
 }

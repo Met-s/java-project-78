@@ -12,14 +12,11 @@ public abstract class BaseSchema<T> {
         this.validations.put(key, validation);
     }
 
-    public boolean isValid(T obj) {
-        if (validations.containsKey("required") && (obj == null || obj == "")) {
-            return false;
-        }
-        if (!validations.containsKey("required")) {
-            return true;
-        }
+    protected final boolean isNullAllowed(T value) {
+        return value == null;
+    }
 
+    public boolean isValid(T obj) {
 
         return validations.values().stream()
                 .allMatch(validation -> validation.test(obj));

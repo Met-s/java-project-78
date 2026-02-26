@@ -1,27 +1,27 @@
 package hexlet.code.schemas;
 
-import java.util.Objects;
-
 
 public class StringSchema extends BaseSchema<String> {
 
-
     public StringSchema required() {
-        addValidation("required", Objects::nonNull);
+        addValidation("required", value -> !isNullAllowed(value)
+                && !value.isEmpty());
 
         return this;
     }
 
     public StringSchema minLength(int minLength) {
 
-        addValidation("minLength", str -> str.length() > minLength);
+        addValidation("minLength", str -> isNullAllowed(str)
+                || str.length() > minLength);
 
         return this;
     }
 
     public StringSchema contains(String substring) {
 
-        addValidation("substring", str -> str.contains(substring));
+        addValidation("substring", str -> isNullAllowed(str)
+                || str.contains(substring));
         return this;
     }
 }

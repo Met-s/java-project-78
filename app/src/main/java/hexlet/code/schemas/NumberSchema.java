@@ -1,25 +1,25 @@
 package hexlet.code.schemas;
 
-import java.util.Objects;
 
 public class NumberSchema extends BaseSchema<Integer> {
 
     public NumberSchema required() {
 
-        addValidation("required", Objects::nonNull);
+        addValidation("required", value -> !isNullAllowed(value));
         return this;
     }
 
     public NumberSchema positive() {
 
-        addValidation("positive", number -> number > 0);
+        addValidation("positive", number -> isNullAllowed(number)
+                || number > 0);
         return this;
     }
 
-    public NumberSchema range(int min, int max) {
+    public NumberSchema range(int minLength, int maxLength) {
 
-        addValidation("range", number ->
-               number >= min && number <= max);
+        addValidation("range", number -> isNullAllowed(number)
+                || number >= minLength && number <= maxLength);
         return this;
     }
 }
