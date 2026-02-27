@@ -8,8 +8,8 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 class StringSchemaTest {
-    final Validator v = new Validator();
-    final StringSchema schema = v.string();
+    private final Validator v = new Validator();
+    private final StringSchema schema = v.string();
 
     @Test
     @DisplayName("Test: schema string, add required()")

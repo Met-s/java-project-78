@@ -14,8 +14,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class MapSchemaTest {
 
-    final Validator v = new Validator();
-    final MapSchema schema = new MapSchema();
+    private final Validator v = new Validator();
+    private final MapSchema schema = new MapSchema();
 
     @Test
     @DisplayName("Test: schema MapSchema, required()")
