@@ -3,20 +3,20 @@ package hexlet.code.schemas;
 
 public class NumberSchema extends BaseSchema<Integer> {
 
-    public NumberSchema required() {
+    public final NumberSchema required() {
 
         addValidation("required", value -> !isNullAllowed(value));
         return this;
     }
 
-    public NumberSchema positive() {
+    public final NumberSchema positive() {
 
         addValidation("positive", number -> isNullAllowed(number)
                 || number > 0);
         return this;
     }
 
-    public NumberSchema range(int minLength, int maxLength) {
+    public final NumberSchema range(int minLength, int maxLength) {
 
         addValidation("range", number -> isNullAllowed(number)
                 || number >= minLength && number <= maxLength);

@@ -6,20 +6,20 @@ import java.util.Objects;
 
 public class MapSchema extends BaseSchema<Map<?, ?>> {
 
-    public MapSchema required() {
+    public final MapSchema required() {
 
         addValidation("required", Objects::nonNull);
         return this;
     }
 
-    public MapSchema sizeof(int size) {
+    public final MapSchema sizeof(int size) {
 
         addValidation("sizeof", map -> (map.size() == size));
         return this;
     }
 
     @SuppressWarnings("unchecked")
-    public <T> MapSchema shape(Map<String, BaseSchema<T>> schemas) {
+    public final <T> MapSchema shape(Map<String, BaseSchema<T>> schemas) {
         addValidation("shape",
                 map -> !isNullAllowed(schemas) && schemas.entrySet().stream()
                         .allMatch(schema ->

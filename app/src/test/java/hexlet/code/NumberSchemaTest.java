@@ -8,8 +8,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 class NumberSchemaTest {
-    Validator v = new Validator();
-    NumberSchema schema = v.number();
+    final Validator v = new Validator();
+    final NumberSchema schema = v.number();
 
     @Test
     @DisplayName("Test: schema NumberSchema, add required()")
