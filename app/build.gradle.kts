@@ -3,7 +3,6 @@ plugins {
     id("idea")
     id ("org.sonarqube") version "7.2.2.6593"
     id("com.github.ben-manes.versions") version "0.52.0"
-    application
     checkstyle
     jacoco
 }
@@ -13,10 +12,6 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
-}
-
-application {
-    mainClass.set("hexlet.code.App")
 }
 
 checkstyle {
